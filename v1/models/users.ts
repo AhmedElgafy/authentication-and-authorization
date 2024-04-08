@@ -1,4 +1,4 @@
-import { Model, Schema } from "mongoose";
+import mongoose, { Model, Schema } from "mongoose";
 const UserSchema = new Schema({
   first_name: {
     type: String,
@@ -29,3 +29,4 @@ const UserSchema = new Schema({
     default: "0x01",
   },
 });
+export default mongoose.model("users", UserSchema);

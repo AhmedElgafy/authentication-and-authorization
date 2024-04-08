@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import App from "./routes/index";
 import mongoose, { ConnectOptions } from "mongoose";
 import { PORT, URI } from "./config";
+import Validate from "./middleware/validate";
 
 const server = express();
 
@@ -30,4 +31,5 @@ mongoose
     server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
   .catch((err) => console.log(err));
+server.use(Validate);
 server.use(App);
